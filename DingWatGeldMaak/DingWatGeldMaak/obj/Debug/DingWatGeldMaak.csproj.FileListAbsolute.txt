@@ -1,0 +1,7 @@
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\bin\Debug\DingWatGeldMaak.exe.config
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\bin\Debug\DingWatGeldMaak.exe
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\bin\Debug\DingWatGeldMaak.pdb
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\obj\Debug\DingWatGeldMaak.csprojAssemblyReference.cache
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\obj\Debug\DingWatGeldMaak.csproj.CoreCompileInputs.cache
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\obj\Debug\DingWatGeldMaak.exe
+C:\LAB\PRIVATE\DingWatGeldMaak\DingWatGeldMaak\obj\Debug\DingWatGeldMaak.pdb
