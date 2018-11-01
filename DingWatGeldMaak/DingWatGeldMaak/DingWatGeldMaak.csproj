@@ -44,16 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DummyPriceDataProvider.cs" />
     <Compile Include="ErrorArgs.cs" />
     <Compile Include="FileDataProvider.cs" />
     <Compile Include="IDataProvider.cs" />
     <Compile Include="IFileDataProvider.cs" />
+    <Compile Include="IStrategy.cs" />
     <Compile Include="ITimeIntervalDataProvider.cs" />
+    <Compile Include="ITimeSeries.cs" />
     <Compile Include="OHLC.cs" />
     <Compile Include="OHLCExtension.cs" />
     <Compile Include="PriceDataProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategy.cs" />
     <Compile Include="TimeIntervalDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
