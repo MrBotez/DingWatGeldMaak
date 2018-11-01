@@ -25,9 +25,12 @@ namespace DingWatGeldMaak
 
     private static void Provider_OnDataAvailable(object sender, object data)
     {
-      var dataReceived = (IEnumerable<int>)data;
+      var dataReceived = (IEnumerable<OHLC>)data;
 
-      Console.WriteLine($"Data has arrived {(String.Join(",", dataReceived))}");
+      foreach (var item in dataReceived)
+      {
+        Console.WriteLine($"Data has arrived {item}");
+      }
     }
   }
 }

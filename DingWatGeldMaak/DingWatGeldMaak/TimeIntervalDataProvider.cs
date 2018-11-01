@@ -5,34 +5,11 @@ using System.Threading.Tasks;
 
 namespace DingWatGeldMaak
 {
-  public class TimeIntervalDataProvider<T> : ITimeIntervalDataProvider
+  public class TimeIntervalDataProvider<T> : DataProvider<T>, ITimeIntervalDataProvider
   {
     public TimeSpan Interval { get; set; }
-    public string Name { get; set; }
 
-    public event DataAvailableHandler OnDataAvailable;
-    public event ErrorOccurredHandler OnError;
-
-    protected bool isStopped = false;
     protected Timer timer = null;
-
-    protected void RaiseError(string message, Exception exception)
-    {
-      var h = OnError;
-      if (h != null)
-      {
-        Task.Run(() => { h(this, new ErrorArgs() { Exception = exception, Message = message }); });
-      }
-    }
-
-    protected void RaiseDataAvailable(IEnumerable<T> data)
-    {
-      var h = OnDataAvailable;
-      if (h != null)
-      {
-        Task.Run(() => { h(this, data); });
-      }
-    }
 
     protected virtual void TimerCallback(object state)
     {
@@ -56,33 +33,29 @@ namespace DingWatGeldMaak
       }
     }
 
-    public TimeIntervalDataProvider()
+    public TimeIntervalDataProvider() : base()
     {
       timer = new Timer(TimerCallback);
       Interval = TimeSpan.MaxValue;
-      isStopped = true;
     }
 
-    public virtual void Get()
+    public override void Start()
     {
-      RaiseDataAvailable(null);
-    }
+      base.Start();
 
-    public virtual void Start()
-    {
-      isStopped = false;
       timer.Change(TimeSpan.FromSeconds(0), Interval);  //Start immediately
     }
 
-    public virtual void Stop()
+    public override void Stop()
     {
-      isStopped = true;
+      base.Stop();
+
       timer.Change(Timeout.Infinite, Timeout.Infinite);
     }
 
-    public void Dispose()
+    public override void Dispose()
     {
-      if (!isStopped) { Stop(); }
+      base.Dispose();
 
       if (timer != null)
       {
@@ -91,9 +64,4 @@ namespace DingWatGeldMaak
       }
     }
   }
-
-  //public class FileDataProvider : IFileDataProvider
-  //{
-
-  //}
 }

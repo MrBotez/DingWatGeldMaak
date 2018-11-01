@@ -1,11 +1,6 @@
 ﻿namespace DingWatGeldMaak
 {
-  public interface IFileDataProvider : IDataProvider
+  public interface IFileDataProvider
   {
   }
-
-  //public class FileDataProvider : IFileDataProvider
-  //{
-
-  //}
 }

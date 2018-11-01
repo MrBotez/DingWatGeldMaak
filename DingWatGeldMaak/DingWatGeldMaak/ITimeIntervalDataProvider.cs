@@ -2,13 +2,8 @@
 
 namespace DingWatGeldMaak
 {
-  public interface ITimeIntervalDataProvider : IDataProvider
+  public interface ITimeIntervalDataProvider
   {
     TimeSpan Interval { get; set; }
   }
-
-  //public class FileDataProvider : IFileDataProvider
-  //{
-
-  //}
 }

@@ -43,10 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataProvider.cs" />
     <Compile Include="ErrorArgs.cs" />
+    <Compile Include="FileDataProvider.cs" />
     <Compile Include="IDataProvider.cs" />
     <Compile Include="IFileDataProvider.cs" />
     <Compile Include="ITimeIntervalDataProvider.cs" />
+    <Compile Include="OHLC.cs" />
+    <Compile Include="OHLCExtension.cs" />
     <Compile Include="PriceDataProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
