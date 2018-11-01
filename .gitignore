@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs
+/Core/DingWatGeldMaak.Core/bin/Debug
+/Core/DingWatGeldMaak.Core/obj
+/Modules/DingWatGeldMaak.FOREX/bin/Debug
+/Modules/DingWatGeldMaak.FOREX/obj
+/Tests/DingWatGeldMaak.Tests.ConsoleApp/bin/Debug
+/Tests/DingWatGeldMaak.Tests.ConsoleApp/obj/Debug
