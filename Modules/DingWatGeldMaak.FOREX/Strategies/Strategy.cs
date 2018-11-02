@@ -4,28 +4,25 @@ using System.Collections.Generic;
 
 namespace DingWatGeldMaak.FOREX.Strategies
 {
-  public class Strategy : IStrategy
+  public class Strategy : Core.Strategies.Strategy, IStrategy
   {
-    public IDataProvider DataProvider { get; set; }
+    protected ITimeSeries _Data = null;
+    public ITimeSeries Data { get { return _Data; } }
+
     public IEnumerable<ITimeSeries> Buffers { get; set; }
 
-    public Strategy(IDataProvider provider)
+    public Strategy(IDataProvider provider) : base(provider)
     {
-      DataProvider = provider;
-      provider.OnDataAvailable += Provider_OnDataAvailable;
-
-      Buffers = new List<ITimeSeries>();
+      _Data = new TimeSeries();
+      Buffers = new List<TimeSeries>();
     }
 
-    protected virtual void Provider_OnDataAvailable(object sender, object data)
+    protected override void ProcessDataAvailable(object data)
     {
-      //Prepare the buffers
-
-
-      Calculate();
+      base.ProcessDataAvailable(data);
     }
 
-    public virtual void Calculate()
+    public override void Calculate()
     {
 
     }

@@ -41,12 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\ITimeSeries.cs" />
+    <Compile Include="Collections\TimeSeries.cs" />
     <Compile Include="Data\OHLC.cs" />
     <Compile Include="Data\OHLCExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DummyPriceDataProvider.cs" />
     <Compile Include="Providers\PriceDataProvider.cs" />
     <Compile Include="Strategies\IStrategy.cs" />
+    <Compile Include="Strategies\MovingAverageCrossOverStrategy.cs" />
     <Compile Include="Strategies\Strategy.cs" />
   </ItemGroup>
   <ItemGroup>

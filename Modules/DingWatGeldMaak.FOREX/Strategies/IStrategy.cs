@@ -6,6 +6,7 @@ namespace DingWatGeldMaak.FOREX.Strategies
 {
   public interface IStrategy : Core.Strategies.IStrategy
   {
+    ITimeSeries Data { get; }
     IEnumerable<ITimeSeries> Buffers { get; set; }
   }
 }

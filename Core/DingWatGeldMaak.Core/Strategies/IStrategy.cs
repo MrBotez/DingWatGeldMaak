@@ -8,5 +8,7 @@ namespace DingWatGeldMaak.Core.Strategies
     IDataProvider DataProvider { get; set; }
 
     void Calculate();
+    int Start();
+    int Stop();
   }
 }

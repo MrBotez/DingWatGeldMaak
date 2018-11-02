@@ -2,6 +2,6 @@
 {
   public interface ITimeSeries
   {
-
+    string Name { get; set; }
   }
 }
