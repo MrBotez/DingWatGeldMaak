@@ -18,9 +18,9 @@ namespace DingWatGeldMaak.FOREX.Strategies
       base.Calculate();
     }
 
-    protected override void Provider_OnDataAvailable(object sender, object data)
+    protected override void ProcessDataAvailable(object data)
     {
-      base.Provider_OnDataAvailable(sender, data);
+      base.ProcessDataAvailable(data);
     }
   }
 }

@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B5902F37
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingWatGeldMaak.Tests.ConsoleApp", "Tests\DingWatGeldMaak.Tests.ConsoleApp\DingWatGeldMaak.Tests.ConsoleApp.csproj", "{71953141-DFA4-4820-A98D-78F1A9249D80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingWatGeldMaak.WindowsService", "Core\DingWatGeldMaak.WindowsService\DingWatGeldMaak.WindowsService.csproj", "{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{71953141-DFA4-4820-A98D-78F1A9249D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71953141-DFA4-4820-A98D-78F1A9249D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71953141-DFA4-4820-A98D-78F1A9249D80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{9224CA93-BD58-4991-8E52-55EEFF90DA98} = {9A736D09-95E0-4C90-B92A-44E684B98FAD}
 		{848A9B91-E312-4E5B-B3AD-EE94D99B030F} = {F7661021-A063-420F-9964-B9926C953730}
 		{71953141-DFA4-4820-A98D-78F1A9249D80} = {B5902F37-418A-4756-AC5C-7FB504B463AA}
+		{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8} = {F7661021-A063-420F-9964-B9926C953730}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11CAC433-0257-4839-BBD8-4D8163787D37}

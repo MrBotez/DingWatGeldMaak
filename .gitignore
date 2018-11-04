@@ -9,3 +9,6 @@
 /Modules/DingWatGeldMaak.FOREX/obj
 /Tests/DingWatGeldMaak.Tests.ConsoleApp/bin/Debug
 /Tests/DingWatGeldMaak.Tests.ConsoleApp/obj/Debug
+/Core/DingWatGeldMaak.WindowsService/bin/Debug
+/Core/DingWatGeldMaak.WindowsService/obj/Debug
+/packages

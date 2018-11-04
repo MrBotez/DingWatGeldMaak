@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\ErrorArgs.cs" />
+    <Compile Include="Log\ConsoleLogger.cs" />
+    <Compile Include="Log\EventLogger.cs" />
+    <Compile Include="Log\FileLogger.cs" />
+    <Compile Include="Log\LogType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DataProvider.cs" />
     <Compile Include="Providers\FileDataProvider.cs" />
