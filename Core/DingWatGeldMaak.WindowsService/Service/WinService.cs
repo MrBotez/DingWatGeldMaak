@@ -1,10 +1,12 @@
 ﻿using DingWatGeldMaak.Core.Log;
+using DingWatGeldMaak.Core.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +19,37 @@ namespace DingWatGeldMaak.WindowsService
     {
       InitializeComponent();
 
+      modules = new List<IModule>();
+
       EventLogger.Instance.EventLogSource = this.ServiceName;
     }
 
-    private IDisposable webService = null;
+    private IList<IModule> modules = null;
+
+    protected void UnloadModules()
+    {
+      Parallel.ForEach(modules, (module) => { module.Stop(); });
+
+      //while (modules.Count > 0)
+      //{
+      //  IModule module = modules[0];
+      //}
+    }
+
+    protected void LoadModules()
+    {
+      // Use the file name to load the assembly into the current
+      // application domain.
+      Assembly a = Assembly.Load("example");
+      // Get the type to use.
+      Type myType = a.GetType("Example");
+      // Get the method to call.
+      MethodInfo myMethod = myType.GetMethod("MethodA");
+      // Create an instance.
+      object obj = Activator.CreateInstance(myType);
+      // Execute the method.
+      myMethod.Invoke(obj, null);
+    }
 
     protected override void OnStart(string[] args)
     {
@@ -28,6 +57,13 @@ namespace DingWatGeldMaak.WindowsService
 
       try
       {
+        if (Environment.UserInteractive)
+        {
+
+        }
+
+        LoadModules();
+
         //Data.DataContext.Instance.Initialize();
 
         //if (webService != null)
@@ -56,6 +92,8 @@ namespace DingWatGeldMaak.WindowsService
 
       try
       {
+        UnloadModules();
+
         //webService?.Dispose();
 
         EventLogger.Instance.LogToEventLog("The service has stopped.", LogType.ltInfo);
