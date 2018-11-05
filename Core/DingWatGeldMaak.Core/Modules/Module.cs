@@ -8,6 +8,11 @@ namespace DingWatGeldMaak.Core.Modules
 {
   public class Module : IModule
   {
+    public Module()
+    {
+
+    }
+
     public virtual void Start()
     {
 

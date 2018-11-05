@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.ServiceProcess;
@@ -34,21 +35,28 @@ namespace DingWatGeldMaak.WindowsService
       //{
       //  IModule module = modules[0];
       //}
+
+      modules.Clear();
     }
 
     protected void LoadModules()
     {
-      // Use the file name to load the assembly into the current
-      // application domain.
-      Assembly a = Assembly.Load("example");
-      // Get the type to use.
-      Type myType = a.GetType("Example");
-      // Get the method to call.
-      MethodInfo myMethod = myType.GetMethod("MethodA");
-      // Create an instance.
-      object obj = Activator.CreateInstance(myType);
-      // Execute the method.
-      myMethod.Invoke(obj, null);
+      var fi = new FileInfo(Assembly.GetExecutingAssembly().Location);
+
+      foreach(var dll in fi.Directory.GetFiles("*.dll"))
+      {
+        var asm = Assembly.LoadFrom(dll.FullName);
+        var modulesFound = asm.GetExportedTypes().Where(i => i.GetInterface("IModule") == typeof(IModule));
+
+        foreach(var mod in modulesFound)
+        {
+          IModule obj = (IModule)Activator.CreateInstance(mod.UnderlyingSystemType);
+
+          modules.Add(obj);
+        }
+      }
+
+      Parallel.ForEach(modules, (mod) => { mod.Start(); });
     }
 
     protected override void OnStart(string[] args)
