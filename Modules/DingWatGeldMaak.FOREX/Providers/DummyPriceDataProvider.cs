@@ -4,8 +4,61 @@ using System.Collections.Generic;
 
 namespace DingWatGeldMaak.FOREX.Providers
 {
-  public class DummyPriceDataProvider : PriceDataProvider
+  public sealed class DummyPriceDataProvider : PriceDataProvider
   {
+    #region Singleton stuff
+
+    private static volatile DummyPriceDataProvider _Instance = null;
+    private static readonly object _synclock = new object();
+
+    private DummyPriceDataProvider()
+    {
+      Interval = TimeSpan.FromSeconds(1);
+    }
+
+    public DummyPriceDataProvider Instance
+    {
+      get
+      {
+        if (_Instance != null) { return _Instance; }
+
+        lock (_synclock)
+        {
+          if (_Instance == null)
+          {
+            _Instance = new DummyPriceDataProvider();
+          }
+        }
+
+        return _Instance;
+      }
+    }
+
+    #endregion
+
+    private bool _disposed = false;
+
+    public override void Dispose()
+    {
+      Dispose(true);
+
+      //base.Dispose();
+
+      GC.SuppressFinalize(true);
+    }
+
+    private void Dispose(bool disposing)
+    {
+      if (_disposed) { return; }
+
+      if (disposing)
+      {
+        _Instance = null;
+      }
+
+      _disposed = true;
+    }
+
     public override void Get()
     {
       var data = new List<OHLC>() {

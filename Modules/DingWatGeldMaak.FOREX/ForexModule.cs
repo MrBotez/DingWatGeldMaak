@@ -8,6 +8,9 @@ namespace DingWatGeldMaak.FOREX
 {
   public class ForexModule : Core.Modules.Module
   {
+    public DataProvider
+
+
     public override void Start()
     {
       base.Start();
