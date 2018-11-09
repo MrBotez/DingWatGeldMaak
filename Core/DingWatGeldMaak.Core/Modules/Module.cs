@@ -12,7 +12,8 @@ namespace DingWatGeldMaak.Core.Modules
   {
     public Module()
     {
-      _Id = Guid.NewGuid();
+      _Id = Guid.Parse("2F1A5838-1198-4287-BE05-F312FA23C632");
+
       _Name = "Module";
       _Logger = null;
     }

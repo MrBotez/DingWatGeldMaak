@@ -12,6 +12,8 @@ namespace DingWatGeldMaak.FOREX
 
     public ForexModule() : base()
     {
+      _Id = Guid.Parse("40C11D6C-4FC4-4D05-ADD5-96EE00D4E42A");
+
       _Name = "ForexModule";
     }
 
