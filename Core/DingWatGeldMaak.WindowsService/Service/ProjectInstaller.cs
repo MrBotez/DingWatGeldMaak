@@ -16,14 +16,25 @@ namespace DingWatGeldMaak.WindowsService
     public ProjectInstaller()
     {
       InitializeComponent();
+
+      for (var idx = 0; idx < this.Installers.Count; idx++)
+      {
+        if (this.Installers[idx] is System.ServiceProcess.ServiceInstaller)
+        {
+          var cfg = ServiceConfiguration.Create();
+
+          ((System.ServiceProcess.ServiceInstaller)this.Installers[idx]).ServiceName = cfg.ServiceName;
+          ((System.ServiceProcess.ServiceInstaller)this.Installers[idx]).DisplayName = cfg.DisplayName;
+          ((System.ServiceProcess.ServiceInstaller)this.Installers[idx]).Description = cfg.Description;
+
+          break;
+        }
+      }
     }
 
     protected override void OnAfterInstall(IDictionary savedState)
     {
       base.OnAfterInstall(savedState);
-
-      //var sc = new System.ServiceProcess.ServiceController(ServiceConfiguration.Create().ServiceName);
-      //sc.Start();
     }
 
     protected override void OnBeforeInstall(IDictionary savedState)
