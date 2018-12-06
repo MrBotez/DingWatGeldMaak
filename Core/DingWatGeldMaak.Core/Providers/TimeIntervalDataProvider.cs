@@ -52,7 +52,7 @@ namespace DingWatGeldMaak.Core.Providers
 
       timer.Change(Timeout.Infinite, Timeout.Infinite);
     }
-
+    
     public override void Dispose()
     {
       base.Dispose();

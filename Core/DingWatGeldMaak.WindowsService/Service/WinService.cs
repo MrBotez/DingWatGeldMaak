@@ -1,5 +1,6 @@
 ﻿using DingWatGeldMaak.Core.Log;
 using DingWatGeldMaak.Core.Modules;
+using log4net.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,8 @@ namespace DingWatGeldMaak.WindowsService
 {
   partial class WinService : ServiceBase
   {
+    private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     public WinService()
     {
       InitializeComponent();
@@ -23,6 +26,7 @@ namespace DingWatGeldMaak.WindowsService
       modules = new List<IModule>();
 
       EventLogger.Instance.EventLogSource = this.ServiceName;
+
     }
 
     private IList<IModule> modules = null;
@@ -51,7 +55,7 @@ namespace DingWatGeldMaak.WindowsService
         foreach(var mod in modulesFound)
         {
           IModule obj = (IModule)Activator.CreateInstance(mod.UnderlyingSystemType);
-
+          obj.Initialize(logger);
           modules.Add(obj);
         }
       }
