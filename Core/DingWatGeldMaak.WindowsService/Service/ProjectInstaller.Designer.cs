@@ -39,12 +39,9 @@
       // 
       // serviceInstaller1
       // 
-
-      var cfg = ServiceConfiguration.Create();
-
-      this.serviceInstaller1.ServiceName = cfg.ServiceName;
-      this.serviceInstaller1.DisplayName = cfg.DisplayName;
-      this.serviceInstaller1.Description = cfg.Description;
+      this.serviceInstaller1.Description = "DingWatGeldMaak.WindowsService Description";
+      this.serviceInstaller1.DisplayName = "DingWatGeldMaak.WindowsService DisplayName";
+      this.serviceInstaller1.ServiceName = "DingWatGeldMaakWindowsServiceServiceName";
       this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
       // 
       // ProjectInstaller

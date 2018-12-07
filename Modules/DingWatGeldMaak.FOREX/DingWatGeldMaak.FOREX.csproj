@@ -34,6 +34,7 @@
       <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Collections\ITimeSeries.cs" />
     <Compile Include="Collections\TimeSeries.cs" />
+    <Compile Include="Configuration\ForexModulesConfigurationSection.cs" />
     <Compile Include="Data\OHLC.cs" />
     <Compile Include="Data\OHLCExtension.cs" />
     <Compile Include="ForexModule.cs" />
