@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connectors\IConnector.cs" />
     <Compile Include="Events\ErrorArgs.cs" />
     <Compile Include="Log\ConsoleLogger.cs" />
     <Compile Include="Log\EventLogger.cs" />

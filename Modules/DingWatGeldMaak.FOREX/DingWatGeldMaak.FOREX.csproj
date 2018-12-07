@@ -50,6 +50,7 @@
     <Compile Include="ForexModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DummyPriceDataProvider.cs" />
+    <Compile Include="Providers\HistoryDataProvider.cs" />
     <Compile Include="Providers\PriceDataProvider.cs" />
     <Compile Include="Strategies\IStrategy.cs" />
     <Compile Include="Strategies\MovingAverageCrossOverStrategy.cs" />
