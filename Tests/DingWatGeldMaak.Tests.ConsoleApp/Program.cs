@@ -12,7 +12,7 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
   {
     static void Main(string[] args)
     {
-      var provider = new PriceDataProvider();
+      var provider = new HistoryDataProvider(@"C:\DEV\DingWatGeldMaak\HistoryData\DAT_MT_GBPUSD_M1_2017.csv");
       provider.Name = "My provider";
       provider.Interval = TimeSpan.FromSeconds(5);
 
@@ -21,7 +21,7 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
 
 
       Console.ReadKey();
-
+      
       provider.Stop();
     }
 

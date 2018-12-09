@@ -53,9 +53,7 @@
     <Compile Include="Modules\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\DataProvider.cs" />
-    <Compile Include="Providers\FileDataProvider.cs" />
     <Compile Include="Providers\IDataProvider.cs" />
-    <Compile Include="Providers\IFileDataProvider.cs" />
     <Compile Include="Providers\ITimeIntervalDataProvider.cs" />
     <Compile Include="Providers\TimeIntervalDataProvider.cs" />
     <Compile Include="Strategies\IStrategy.cs" />

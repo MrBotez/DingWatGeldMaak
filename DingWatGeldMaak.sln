@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingWatGeldMaak.Tests.Conso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingWatGeldMaak.WindowsService", "Core\DingWatGeldMaak.WindowsService\DingWatGeldMaak.WindowsService.csproj", "{E706D519-9D28-40FD-BB21-B4CA4BB9B3E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HistoryData", "HistoryData", "{159095FD-8943-4D58-B152-279272E6911D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

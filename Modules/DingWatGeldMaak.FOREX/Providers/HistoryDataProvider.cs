@@ -7,22 +7,18 @@ using System.Linq;
 
 namespace DingWatGeldMaak.FOREX.Providers
 {
-  public class HistoryDataProvider : TimeIntervalDataProvider<OHLC>
+  public class HistoryDataProvider : PriceDataProvider // TimeIntervalDataProvider<OHLC>
   {
     protected string fileName = "";
-    protected List<OHLC> historyData = null;
     protected int currentIndex = 0;
 
     public HistoryDataProvider(string fileName) : base()
     {
       this.fileName = fileName;
-      historyData = new List<OHLC>();
     }
 
     public override void Dispose()
     {
-      historyData.Clear();
-
       base.Dispose();
     }
 
