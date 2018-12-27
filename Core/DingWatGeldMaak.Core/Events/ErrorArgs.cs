@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DingWatGeldMaak.Core.Events
 {
-  public delegate void DataAvailableHandler(object sender, object data);
+  public delegate void DataAvailableHandler<T>(object sender, IEnumerable<T> data);
 
   public class ErrorArgs
   {

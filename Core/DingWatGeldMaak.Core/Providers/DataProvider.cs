@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace DingWatGeldMaak.Core.Providers
 {
-  public class DataProvider<T> : IDataProvider
+  public class DataProvider<T> : IDataProvider<T>
   {
     public string Name { get; set; }
 
-    public event DataAvailableHandler OnDataAvailable;
+    public event DataAvailableHandler<T> OnDataAvailable;
     public event ErrorOccurredHandler OnError;
 
     protected bool isStopped = false;
@@ -55,6 +55,11 @@ namespace DingWatGeldMaak.Core.Providers
       {
         Task.Run(() => { h(this, data); });
       }
+    }
+
+    public virtual IEnumerable<T> GetDataFromDate(DateTime start)
+    {
+      return null;
     }
   }
 }

@@ -5,7 +5,7 @@ namespace DingWatGeldMaak.Core.Strategies
 {
   public interface IStrategy
   {
-    IDataProvider DataProvider { get; set; }
+    //IDataProvider DataProvider { get; set; }
 
     void Calculate();
     int Start();

@@ -50,6 +50,17 @@
     <Compile Include="Data\OHLC.cs" />
     <Compile Include="Data\OHLCExtension.cs" />
     <Compile Include="ForexModule.cs" />
+    <Compile Include="Markets\Chart.cs" />
+    <Compile Include="Markets\ChartTimeFrameEnum.cs" />
+    <Compile Include="Markets\ChartTypeEnum.cs" />
+    <Compile Include="Markets\CommodityInformation.cs" />
+    <Compile Include="Markets\IMarket.cs" />
+    <Compile Include="Markets\IMarketData.cs" />
+    <Compile Include="Markets\Market.cs" />
+    <Compile Include="Markets\MarketInformation.cs" />
+    <Compile Include="Markets\OrderInformation.cs" />
+    <Compile Include="Markets\OrderTypeEnum.cs" />
+    <Compile Include="Markets\Strategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\HistoryDataProvider.cs" />
     <Compile Include="Providers\PriceDataProvider.cs" />

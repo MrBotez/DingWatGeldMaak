@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DingWatGeldMaak.Core.Providers
 {
-  public interface IDataProvider : IDisposable
+  public interface IDataProvider<T> : IDisposable, IDataProviderDataControl<T>
   {
     string Name { get; set; }
 
@@ -13,7 +13,6 @@ namespace DingWatGeldMaak.Core.Providers
     void Stop();
     void Get();
 
-    event DataAvailableHandler OnDataAvailable;
     event ErrorOccurredHandler OnError;
   }
 }

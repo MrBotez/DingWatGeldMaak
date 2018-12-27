@@ -6,20 +6,20 @@ namespace DingWatGeldMaak.Core.Strategies
 {
   public class Strategy : IStrategy
   {
-    public IDataProvider DataProvider { get; set; }
+    //public IDataProvider DataProvider { get; set; }
 
     /// <summary>
     /// Indicates wether the startegy is stopped
     /// </summary>
     protected bool isStopped;
 
-    public Strategy(IDataProvider provider)
-    {
-      isStopped = true;
+    //public Strategy(IDataProvider provider)
+    //{
+    //  isStopped = true;
 
-      DataProvider = provider;
-      provider.OnDataAvailable += Provider_OnDataAvailable;
-    }
+    //  DataProvider = provider;
+    //  provider.OnDataAvailable += Provider_OnDataAvailable;
+    //}
 
     protected void Provider_OnDataAvailable(object sender, object data)
     {

@@ -7,20 +7,20 @@ using DingWatGeldMaak.Core.Providers;
 
 namespace DingWatGeldMaak.FOREX.Strategies
 {
-  public class MovingAverageCrossOverStrategy : Strategy
-  {
-    public MovingAverageCrossOverStrategy(IDataProvider provider) : base(provider)
-    {
-    }
+  //public class MovingAverageCrossOverStrategy : Strategy
+  //{
+  //  public MovingAverageCrossOverStrategy(IDataProvider provider) : base(provider)
+  //  {
+  //  }
 
-    public override void Calculate()
-    {
-      base.Calculate();
-    }
+  //  public override void Calculate()
+  //  {
+  //    base.Calculate();
+  //  }
 
-    protected override void ProcessDataAvailable(object data)
-    {
-      base.ProcessDataAvailable(data);
-    }
-  }
+  //  protected override void ProcessDataAvailable(object data)
+  //  {
+  //    base.ProcessDataAvailable(data);
+  //  }
+  //}
 }
