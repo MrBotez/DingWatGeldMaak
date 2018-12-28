@@ -48,7 +48,7 @@ namespace DingWatGeldMaak.FOREX.Markets
 
       timer = new Timer(TimerCallback);
       Interval = TimeSpan.MaxValue;
-      DataStartTime = DateTime.Now.AddMinutes(60 * 24 * 9);
+      DataStartTime = DateTime.Now.AddMinutes(60 * 24 * 9 * -1);
       lastDataTimes = new Dictionary<string, DateTime>();
 
       Charts = new Dictionary<string, List<Chart>>();
@@ -86,8 +86,8 @@ namespace DingWatGeldMaak.FOREX.Markets
           Parallel.ForEach(Charts.Keys, (key) =>
           {
             var data = Market.GetDataFromDate(key, lastDataTimes[key]);
-
-            Parallel.ForEach(Charts[key], (item) => { item.UpdatePriceData(data); });
+            
+            Parallel.ForEach(Charts[key], (item) => { item.UpdatePriceData(data); });  //.Where(i => i.Time != lastDataTimes[key])
 
             lastDataTimes[key] = data.Last().Time;
           });

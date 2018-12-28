@@ -15,7 +15,17 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
 
     static void Main(string[] args)
     {
-      var provider = new HistoryDataProvider(@"C:\DEV\DingWatGeldMaak\HistoryData\DAT_MT_GBPUSD_M1_2017.csv");
+      //var df = new DataFrame();
+
+      //var dt = DateTime.Now;
+
+      //var val = df["Open"][dt];
+      //df["Open"][dt] = 12.00;
+      //df["Open"][dt] = 13.00;
+
+      //return;
+
+      var provider = new HistoryDataProvider(@"C:\DEV\DingWatGeldMaak\HistoryData\DAT_MT_GBPUSD_M1_2018.csv");
       provider.Name = "My provider";
       provider.Interval = TimeSpan.FromSeconds(5);
 
@@ -23,18 +33,22 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
       market.RegisterProvider("GBPUSD", provider);
 
       var strategy = new Strategy(market);
+      strategy.Interval = TimeSpan.FromMilliseconds(0);
+      //strategy.DataStartTime = provider.
 
       var chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M05);
-      chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M10);
+      //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M15);
+      //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M30);
+      //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.H01);
 
+      provider.Start();
       strategy.Start();
       //provider.OnDataAvailable += Provider_OnDataAvailable;
-      //provider.Start();
 
       Console.ReadKey();
 
       strategy.Stop();
-      //provider.Stop();
+      provider.Stop();
     }
 
     private static void Provider_OnDataAvailable(object sender, object data)

@@ -54,6 +54,8 @@
     <Compile Include="Markets\ChartTimeFrameEnum.cs" />
     <Compile Include="Markets\ChartTypeEnum.cs" />
     <Compile Include="Markets\CommodityInformation.cs" />
+    <Compile Include="Markets\DataDictionary.cs" />
+    <Compile Include="Markets\DataFrame.cs" />
     <Compile Include="Markets\IMarket.cs" />
     <Compile Include="Markets\IMarketData.cs" />
     <Compile Include="Markets\Market.cs" />

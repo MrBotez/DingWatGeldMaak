@@ -80,7 +80,7 @@ namespace DingWatGeldMaak.FOREX.Markets
 
     public CommodityInformation GetCommodityInformation(string symbol)
     {
-      throw new NotImplementedException();
+      return new CommodityInformation(symbol);
     }
 
     #endregion IMarket
