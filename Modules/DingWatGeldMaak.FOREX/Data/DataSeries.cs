@@ -48,9 +48,28 @@ namespace DingWatGeldMaak.FOREX.Data
       DataDescending = new SortedList<DateTime, T>(new DescendedDateComparer());
     }
 
-    public IEnumerable<T> GetPreviousData(DateTime dateTime, int count)
+    /// <summary>
+    /// Return a number of historic data points from a point in time backwards indexed by time
+    /// </summary>
+    /// <param name="dateTime">The start time at which the data range should start from</param>
+    /// <param name="count">The number of data points into the past</param>
+    /// <returns>The values indexed by their times of the data points found</returns>
+    public IEnumerable<KeyValuePair<DateTime, T>> GetPreviousData(DateTime dateTime, int count)
     {
       var rv = DataDescending.Where(i => i.Key <= dateTime).Take(count);
+
+      return rv;
+    }
+
+    /// <summary>
+    /// Return a number of historic data point values from a point in time backwards
+    /// </summary>
+    /// <param name="dateTime">The start time at which the data range should start from</param>
+    /// <param name="count">The number of data points into the past</param>
+    /// <returns>The values only of the data points found</returns>
+    public IEnumerable<T> GetPreviousDataValues(DateTime dateTime, int count)
+    {
+      var rv = GetPreviousData(dateTime, count);
 
       return rv.Select(i => i.Value);
     }

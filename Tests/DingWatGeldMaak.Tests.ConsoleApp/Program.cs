@@ -3,6 +3,7 @@ using DingWatGeldMaak.FOREX.Data;
 using DingWatGeldMaak.FOREX.Indicators;
 using DingWatGeldMaak.FOREX.Markets;
 using DingWatGeldMaak.FOREX.Providers;
+using DingWatGeldMaak.FOREX.Strategies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,12 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
       Market market = new Market(logger);
       market.RegisterProvider("GBPUSD", provider);
 
-      var strategy = new Strategy(market);
+      var strategy = new MovingAverageCrossOverStrategy(market, "GBPUSD");
       strategy.Interval = TimeSpan.FromMilliseconds(0);
       //strategy.DataStartTime = provider.
 
-      var chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M05);
-      chart.AddIndicator(new MovingAverage(chart.Data, 20, MovingAverageMethodEnum.Simple, AppliesToEnum.Close, "Slow SMA"));
+      //var chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M05);
+      //chart.AddIndicator(new MovingAverage(chart.Data, 20, MovingAverageMethodEnum.Simple, AppliesToEnum.Close, "Slow SMA"));
       //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M15);
       //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M30);
       //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.H01);

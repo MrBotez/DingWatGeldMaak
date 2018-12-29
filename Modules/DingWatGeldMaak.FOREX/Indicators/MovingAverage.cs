@@ -72,7 +72,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
         {
           case AppliesToEnum.Open:
             {
-              var val = Open.GetPreviousData(key, Period).Sum() / Period;
+              var val = Open.GetPreviousDataValues(key, Period).Sum() / Period;
 
               Data["Buffer"][key] = val;
 
@@ -80,7 +80,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
             }
           case AppliesToEnum.High:
             {
-              var val = High.GetPreviousData(key, Period).Sum() / Period;
+              var val = High.GetPreviousDataValues(key, Period).Sum() / Period;
 
               Data["Buffer"][key] = val;
 
@@ -88,7 +88,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
             }
           case AppliesToEnum.Low:
             {
-              var val = Low.GetPreviousData(key, Period).Sum() / Period;
+              var val = Low.GetPreviousDataValues(key, Period).Sum() / Period;
 
               Data["Buffer"][key] = val;
 
@@ -96,7 +96,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
             }
           case AppliesToEnum.Close:
             {
-              var val = Close.GetPreviousData(key, Period).Sum() / Period;
+              var val = Close.GetPreviousDataValues(key, Period).Sum() / Period;
 
               Data["Buffer"][key] = val;
 
@@ -104,8 +104,8 @@ namespace DingWatGeldMaak.FOREX.Indicators
             }
           case AppliesToEnum.MedianPrice:
             {
-              var val = High.GetPreviousData(key, Period).Sum();
-              val += Low.GetPreviousData(key, Period).Sum();
+              var val = High.GetPreviousDataValues(key, Period).Sum();
+              val += Low.GetPreviousDataValues(key, Period).Sum();
               val = val / 2;
               val = val / Period;
 
@@ -115,9 +115,9 @@ namespace DingWatGeldMaak.FOREX.Indicators
             }
           case AppliesToEnum.TypicalPrice:
             {
-              var val = High.GetPreviousData(key, Period).Sum();
-              val += Low.GetPreviousData(key, Period).Sum();
-              val += Close.GetPreviousData(key, Period).Sum();
+              var val = High.GetPreviousDataValues(key, Period).Sum();
+              val += Low.GetPreviousDataValues(key, Period).Sum();
+              val += Close.GetPreviousDataValues(key, Period).Sum();
               val = val / 3;
               val = val / Period;
 

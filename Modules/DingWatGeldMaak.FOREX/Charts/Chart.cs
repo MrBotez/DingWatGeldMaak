@@ -10,7 +10,7 @@ namespace DingWatGeldMaak.FOREX.Charts
 {
   public class Chart : IDisposable
   {
-    public DataFrame Data { get; set; }
+    public DataFrame ChartData { get; set; }
     public ChartTypeEnum ChartType { get; private set; }
     public ChartTimeFrameEnum TimeFrame { get; private set; }
     public MarketInformation MarketInfo { get; private set; }
@@ -24,7 +24,7 @@ namespace DingWatGeldMaak.FOREX.Charts
       ChartType = chartType;
       TimeFrame = chartTimeFrame;
       this.comodityInfo = comodityInfo;
-      Data = new DataFrame();
+      ChartData = new DataFrame();
       dataReceived = new DataSeries<OHLC>();
       indicators = new List<Indicator>();
     }
@@ -80,6 +80,11 @@ namespace DingWatGeldMaak.FOREX.Charts
       }
     }
 
+    public Indicator GetIndicatorByName(string name)
+    {
+      return indicators.FirstOrDefault(i => i.Name == name);
+    }
+
     public void UpdatePriceData(IEnumerable<OHLC> data)
     {
       foreach (var item in data)
@@ -87,11 +92,11 @@ namespace DingWatGeldMaak.FOREX.Charts
         dataReceived[item.Time] = item;
       }
 
-      var dataLow = Data["Low"];        //
-      var dataHigh = Data["High"];      // Saving a few cycles on dictionary access
-      var dataOpen = Data["Open"];      // throughout the rest of the method
-      var dataClose = Data["Close"];    //
-      var dataVolume = Data["Volume"];  //
+      var dataLow = ChartData["Low"];        //
+      var dataHigh = ChartData["High"];      // Saving a few cycles on dictionary access
+      var dataOpen = ChartData["Open"];      // throughout the rest of the method
+      var dataClose = ChartData["Close"];    //
+      var dataVolume = ChartData["Volume"];  //
 
       var startTime = data.Select(i => i.Time).Min();
       startTime = ConvertToTimeframe(startTime);
