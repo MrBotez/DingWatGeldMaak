@@ -1,4 +1,4 @@
-﻿namespace DingWatGeldMaak.FOREX.Markets
+﻿namespace DingWatGeldMaak.FOREX.Charts
 {
   public enum ChartTimeFrameEnum
   {

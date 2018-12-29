@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DingWatGeldMaak.FOREX.Markets
+namespace DingWatGeldMaak.FOREX.Data
 {
   public class DataFrame : IDisposable
   {

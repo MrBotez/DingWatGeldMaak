@@ -2,8 +2,9 @@
 using System.Linq;
 using System.Collections.Generic;
 using DingWatGeldMaak.FOREX.Data;
+using DingWatGeldMaak.FOREX.Markets;
 
-namespace DingWatGeldMaak.FOREX.Markets
+namespace DingWatGeldMaak.FOREX.Charts
 {
   public class Chart : IDisposable
   {

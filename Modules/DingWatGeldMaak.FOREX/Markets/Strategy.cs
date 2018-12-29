@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using DingWatGeldMaak.FOREX.Charts;
 
 namespace DingWatGeldMaak.FOREX.Markets
 {
@@ -87,7 +88,7 @@ namespace DingWatGeldMaak.FOREX.Markets
           {
             var data = Market.GetDataFromDate(key, lastDataTimes[key]);
             
-            Parallel.ForEach(Charts[key], (item) => { item.UpdatePriceData(data); });  //.Where(i => i.Time != lastDataTimes[key])
+            Parallel.ForEach(Charts[key], (item) => { item.UpdatePriceData(data); });
 
             lastDataTimes[key] = data.Last().Time;
           });

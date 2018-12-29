@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DingWatGeldMaak.FOREX.Markets
+namespace DingWatGeldMaak.FOREX.Data
 {
   public class DataDictionary<T> : IDisposable
   {

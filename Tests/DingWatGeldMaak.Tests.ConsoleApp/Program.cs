@@ -1,4 +1,5 @@
-﻿using DingWatGeldMaak.FOREX.Data;
+﻿using DingWatGeldMaak.FOREX.Charts;
+using DingWatGeldMaak.FOREX.Data;
 using DingWatGeldMaak.FOREX.Markets;
 using DingWatGeldMaak.FOREX.Providers;
 using System;

@@ -50,16 +50,20 @@
     <Compile Include="Data\OHLC.cs" />
     <Compile Include="Data\OHLCExtension.cs" />
     <Compile Include="ForexModule.cs" />
-    <Compile Include="Markets\Chart.cs" />
-    <Compile Include="Markets\ChartTimeFrameEnum.cs" />
-    <Compile Include="Markets\ChartTypeEnum.cs" />
+    <Compile Include="Indicators\AppliesToEnum.cs" />
+    <Compile Include="Charts\Chart.cs" />
+    <Compile Include="Charts\ChartTimeFrameEnum.cs" />
+    <Compile Include="Charts\ChartTypeEnum.cs" />
     <Compile Include="Markets\CommodityInformation.cs" />
-    <Compile Include="Markets\DataDictionary.cs" />
-    <Compile Include="Markets\DataFrame.cs" />
+    <Compile Include="Data\DataDictionary.cs" />
+    <Compile Include="Data\DataFrame.cs" />
     <Compile Include="Markets\IMarket.cs" />
     <Compile Include="Markets\IMarketData.cs" />
+    <Compile Include="Indicators\Indicator.cs" />
     <Compile Include="Markets\Market.cs" />
     <Compile Include="Markets\MarketInformation.cs" />
+    <Compile Include="Indicators\MovingAverage.cs" />
+    <Compile Include="Indicators\MovingAverageMethodEnum.cs" />
     <Compile Include="Markets\OrderInformation.cs" />
     <Compile Include="Markets\OrderTypeEnum.cs" />
     <Compile Include="Markets\Strategy.cs" />
@@ -79,5 +83,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
