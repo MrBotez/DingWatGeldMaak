@@ -3,6 +3,8 @@ using System.Linq;
 using System.Collections.Generic;
 using DingWatGeldMaak.FOREX.Data;
 using DingWatGeldMaak.FOREX.Markets;
+using DingWatGeldMaak.FOREX.Indicators;
+using System.Threading.Tasks;
 
 namespace DingWatGeldMaak.FOREX.Charts
 {
@@ -14,7 +16,8 @@ namespace DingWatGeldMaak.FOREX.Charts
     public MarketInformation MarketInfo { get; private set; }
 
     protected CommodityInformation comodityInfo = null;
-    protected DataDictionary<OHLC> dataReceived = null;
+    protected DataSeries<OHLC> dataReceived = null;
+    protected List<Indicator> indicators = null;
 
     public Chart(CommodityInformation comodityInfo, ChartTypeEnum chartType, ChartTimeFrameEnum chartTimeFrame, IMarketData marketData)
     {
@@ -22,7 +25,8 @@ namespace DingWatGeldMaak.FOREX.Charts
       TimeFrame = chartTimeFrame;
       this.comodityInfo = comodityInfo;
       Data = new DataFrame();
-      dataReceived = new DataDictionary<OHLC>();
+      dataReceived = new DataSeries<OHLC>();
+      indicators = new List<Indicator>();
     }
 
     public void Dispose()
@@ -68,6 +72,14 @@ namespace DingWatGeldMaak.FOREX.Charts
       }
     }
 
+    public void AddIndicator(Indicator indicator)
+    {
+      if (indicator != null)
+      {
+        indicators.Add(indicator);
+      }
+    }
+
     public void UpdatePriceData(IEnumerable<OHLC> data)
     {
       foreach (var item in data)
@@ -110,7 +122,7 @@ namespace DingWatGeldMaak.FOREX.Charts
         dataVolume[timeKey] += item.Volume;
       }
 
-      //UpdateChartItems(startTime);
+      Parallel.ForEach(indicators, (indicator) => { indicator.Calculate(startTime); });
     }
   }
 }

@@ -1,5 +1,6 @@
 ﻿using DingWatGeldMaak.FOREX.Charts;
 using DingWatGeldMaak.FOREX.Data;
+using DingWatGeldMaak.FOREX.Indicators;
 using DingWatGeldMaak.FOREX.Markets;
 using DingWatGeldMaak.FOREX.Providers;
 using System;
@@ -16,16 +17,6 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
 
     static void Main(string[] args)
     {
-      //var df = new DataFrame();
-
-      //var dt = DateTime.Now;
-
-      //var val = df["Open"][dt];
-      //df["Open"][dt] = 12.00;
-      //df["Open"][dt] = 13.00;
-
-      //return;
-
       var provider = new HistoryDataProvider(@"C:\DEV\DingWatGeldMaak\HistoryData\DAT_MT_GBPUSD_M1_2018.csv");
       provider.Name = "My provider";
       provider.Interval = TimeSpan.FromSeconds(5);
@@ -38,6 +29,7 @@ namespace DingWatGeldMaak.Tests.ConsoleApp
       //strategy.DataStartTime = provider.
 
       var chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M05);
+      chart.AddIndicator(new MovingAverage(chart.Data, 20, MovingAverageMethodEnum.Simple, AppliesToEnum.Close, "Slow SMA"));
       //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M15);
       //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.M30);
       //chart = strategy.AddChart("GBPUSD", ChartTypeEnum.OHLC, ChartTimeFrameEnum.H01);

@@ -47,6 +47,7 @@
     <Compile Include="Collections\ITimeSeries.cs" />
     <Compile Include="Collections\TimeSeries.cs" />
     <Compile Include="Configuration\ForexModulesConfigurationSection.cs" />
+    <Compile Include="Data\DescendedDateComparer.cs" />
     <Compile Include="Data\OHLC.cs" />
     <Compile Include="Data\OHLCExtension.cs" />
     <Compile Include="ForexModule.cs" />
@@ -55,7 +56,7 @@
     <Compile Include="Charts\ChartTimeFrameEnum.cs" />
     <Compile Include="Charts\ChartTypeEnum.cs" />
     <Compile Include="Markets\CommodityInformation.cs" />
-    <Compile Include="Data\DataDictionary.cs" />
+    <Compile Include="Data\DataSeries.cs" />
     <Compile Include="Data\DataFrame.cs" />
     <Compile Include="Markets\IMarket.cs" />
     <Compile Include="Markets\IMarketData.cs" />

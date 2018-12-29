@@ -5,14 +5,14 @@ namespace DingWatGeldMaak.FOREX.Data
 {
   public class DataFrame : IDisposable
   {
-    public Dictionary<string, DataDictionary<double>> Data { get; set; }
-    public DataDictionary<double> this[string idx]
+    public Dictionary<string, DataSeries<double>> Data { get; set; }
+    public DataSeries<double> this[string idx]
     {
       get
       {
         if (!Data.ContainsKey(idx))
         {
-          Data.Add(idx, new DataDictionary<double>());
+          Data.Add(idx, new DataSeries<double>());
         }
 
         return Data[idx];
@@ -21,7 +21,7 @@ namespace DingWatGeldMaak.FOREX.Data
       {
         if (!Data.ContainsKey(idx))
         {
-          Data.Add(idx, new DataDictionary<double>());
+          Data.Add(idx, new DataSeries<double>());
         }
 
         if (value != null)
@@ -50,7 +50,7 @@ namespace DingWatGeldMaak.FOREX.Data
 
     public DataFrame()
     {
-      Data = new Dictionary<string, DataDictionary<double>>();
+      Data = new Dictionary<string, DataSeries<double>>();
     }
 
     public void Dispose()
