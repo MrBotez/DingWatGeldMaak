@@ -37,8 +37,6 @@ namespace DingWatGeldMaak.FOREX.Strategies
     /// </summary>
     public DateTime DataStartTime { get; set; }
 
-    public SignalEnu Signal { get; set; }  //Still have to figure this out
-
     #endregion Properties
 
     protected Timer timer = null;
@@ -115,10 +113,10 @@ namespace DingWatGeldMaak.FOREX.Strategies
       
     }
 
-    public Chart AddChart(string symbol, ChartTypeEnum chartType, ChartTimeFrameEnum timeFrame)
+    public Chart AddChart(string symbol, ChartTypeEnum chartType, ChartTimeFrameEnum timeFrame, string name)
     {
       var comodityInfo = Market.GetCommodityInformation(symbol);
-      var chart = new Chart(comodityInfo, chartType, timeFrame, Market);
+      var chart = new Chart(comodityInfo, chartType, timeFrame, Market, name);
 
       if (!Charts.ContainsKey(symbol))
       {

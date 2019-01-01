@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace DingWatGeldMaak.FOREX.Data
 {
-  public class DataFrame : IDisposable
+  public class DataFrame<T> : IDisposable
   {
-    public Dictionary<string, DataSeries<double>> Data { get; set; }
-    public DataSeries<double> this[string idx]
+    public Dictionary<string, DataSeries<T>> Data { get; set; }
+    public DataSeries<T> this[string idx]
     {
       get
       {
         if (!Data.ContainsKey(idx))
         {
-          Data.Add(idx, new DataSeries<double>());
+          Data.Add(idx, new DataSeries<T>());
         }
 
         return Data[idx];
@@ -21,7 +21,7 @@ namespace DingWatGeldMaak.FOREX.Data
       {
         if (!Data.ContainsKey(idx))
         {
-          Data.Add(idx, new DataSeries<double>());
+          Data.Add(idx, new DataSeries<T>());
         }
 
         if (value != null)
@@ -50,7 +50,7 @@ namespace DingWatGeldMaak.FOREX.Data
 
     public DataFrame()
     {
-      Data = new Dictionary<string, DataSeries<double>>();
+      Data = new Dictionary<string, DataSeries<T>>();
     }
 
     public void Dispose()

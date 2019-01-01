@@ -32,7 +32,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
     /// <param name="period">The period of the moving average</param>
     /// <param name="method">The method to use in calculating the moving average aka the type of moving average</param>
     /// <param name="appliesTo">What price data must be used in calculating the moving average</param>
-    public MovingAverage(DataFrame chartData, int period, MovingAverageMethodEnum method, AppliesToEnum appliesTo) : base(chartData)
+    public MovingAverage(DataFrame<double> chartData, int period, MovingAverageMethodEnum method, AppliesToEnum appliesTo) : base(chartData)
     {
       Period = period;
       Method = method;
@@ -47,7 +47,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
     /// <param name="method">The method to use in calculating the moving average aka the type of moving average</param>
     /// <param name="appliesTo">What price data must be used in calculating the moving average</param>
     /// <param name="name">An arbitrary name for the indicator</param>
-    public MovingAverage(DataFrame chartData, int period, MovingAverageMethodEnum method, AppliesToEnum appliesTo, string name) : this(chartData, period, method, appliesTo)
+    public MovingAverage(DataFrame<double> chartData, int period, MovingAverageMethodEnum method, AppliesToEnum appliesTo, string name) : this(chartData, period, method, appliesTo)
     {
       Name = string.IsNullOrEmpty(name) ? "" : name;
     }

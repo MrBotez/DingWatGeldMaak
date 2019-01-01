@@ -15,7 +15,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
     /// <summary>
     /// Data frame that holds all of the data buffers that the indcator will use
     /// </summary>
-    public DataFrame Data { get; set; }
+    public DataFrame<double> Data { get; set; }
 
     /// <summary>
     /// Easy access property to the open price data of the chart
@@ -44,16 +44,16 @@ namespace DingWatGeldMaak.FOREX.Indicators
 
     #endregion Properties
 
-    private readonly DataFrame chartData = null;  //Holds the data frame of the chart
+    private readonly DataFrame<double> chartData = null;  //Holds the data frame of the chart
 
     /// <summary>
     /// Creates an <see cref="Indicator"/> object
     /// </summary>
     /// <param name="chartData">The data frame of the chart that this indicator is attached to</param>
-    public Indicator(DataFrame chartData)
+    public Indicator(DataFrame<double> chartData)
     {
       Name = Guid.NewGuid().ToString();
-      Data = new DataFrame();
+      Data = new DataFrame<double>();
       this.chartData = chartData;
     }
 
@@ -62,7 +62,7 @@ namespace DingWatGeldMaak.FOREX.Indicators
     /// </summary>
     /// <param name="chartData">The data frame of the chart that this indicator is attached to</param>
     /// <param name="name">An arbitrary name for the indicator</param>
-    public Indicator(DataFrame chartData, string name) : this(chartData)
+    public Indicator(DataFrame<double> chartData, string name) : this(chartData)
     {
       Name = string.IsNullOrEmpty(name) ? "" : name;
     }
